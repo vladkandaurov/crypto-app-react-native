@@ -10,10 +10,12 @@ import {
     TouchableOpacity
 } from 'react-native';
 import {dummyData, COLORS, SIZES, FONTS, icons, images} from '../constants'
+import {PriceAlert, TransactionHistory} from '../components'
 
 const Home = ({ navigation }) => {
 
-    const [trending] = useState(dummyData.trendingCurrencies)
+    const [trending] = useState(dummyData.trendingCurrencies);
+    const [transactionHistory] = useState(dummyData.transactionHistory)
 
 const renderHeader = ()=>{
 
@@ -86,10 +88,53 @@ const renderHeader = ()=>{
     )
 }
 
+const renderAlert = ()=>{
+    return (
+        <PriceAlert/>
+    )
+}
+
+const renderNotice = ()=>{
+    return (
+        <View style={{
+            marginTop:SIZES.padding,
+            marginHorizontal:SIZES.padding,
+            padding:20,
+            borderRadius: SIZES.radius,
+            backgroundColor:COLORS.secondary,
+            ...styles.shadow
+        }}>
+            <Text style={{color:COLORS.white, ...FONTS.h3}}>Investing Safety</Text>
+            <Text style={{ marginTop:SIZES.base, color: COLORS.white, lineHeight:18, ...FONTS.body4}}>Its very difficult to time an investment,
+                especially whenthe market is volatile. Learn how to 
+                use dollar coast averaging to your advantage.
+            </Text>
+            <TouchableOpacity style={{marginTop:SIZES.base}} 
+            onPress={()=>console.log('Learn more')}>
+                <Text style={{textDecorationLine:'underline', color:COLORS.green, ...FONTS.h3}}>Learn more</Text>
+
+            </TouchableOpacity>
+
+        </View>
+    )
+}
+
+const renderTransactionHistory = ()=>{
+    return (
+        <TransactionHistory
+        customContainerStyle={{...styles.shadow}}
+        history={transactionHistory}
+        />
+    )
+}
+
     return (
         <ScrollView>
             <View style={{flex:1, paddingBottom: 130 }}>
               {renderHeader()}
+              {renderAlert()}
+              {renderNotice()}
+              {renderTransactionHistory()}
             </View>
         </ScrollView>
     )
