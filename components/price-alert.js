@@ -1,6 +1,5 @@
 import React from 'react';
 import {StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native'
-import { shadowOffset } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 import { COLORS, SIZES, FONTS, icons} from '../constants'
 
 const PriceAlert =({customContainerStyle})=>{
