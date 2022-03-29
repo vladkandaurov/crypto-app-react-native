@@ -38,6 +38,7 @@ const CryptoDetail = ({route, navigation }) => {
 
     const renderDots = ()=>{
         const dotPosition =Animated.divide(scrollX, SIZES.width)
+        
 
         return(
             <View style={{height:30, marginTop:15}}>
