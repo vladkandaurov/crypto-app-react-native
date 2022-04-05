@@ -3,13 +3,12 @@ import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { COLORS, SIZES, FONTS } from '../../constants';
 
 export const RenderItem = ({ item, index, onPress }) => {
+  console.log(index);
   return (
-    <TouchableOpacity style={styles.container} onPress={() => onPress(item)}>
-      <View
-        style={[
-          styles.direction,
-          { marginLeft: index == 0 ? SIZES.padding : 0 },
-        ]}>
+    <TouchableOpacity
+      style={[{ marginLeft: index == 0 ? SIZES.padding : 0 }, styles.container]}
+      onPress={() => onPress(item)}>
+      <View style={styles.direction}>
         <View>
           <Image source={item.image} resizeMode="cover" style={styles.image} />
         </View>
