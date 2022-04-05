@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, SafeAreaView, ScrollView, View, Text } from 'react-native';
 
-import { HeaderBar, TransactionHistory } from '../components';
-import { Trade } from '../components/transaction';
-import { SIZES } from '../constants';
+import { HeaderBar, TransactionHistory } from '../../components';
+import { Trade } from '../../components/transaction';
+import { SIZES } from '../../constants';
 
 const Transaction = ({ route }) => {
   const [selectedCurrency, setSelectedCurrency] = useState(null);

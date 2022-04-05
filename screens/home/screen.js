@@ -1,8 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
-import { dummyData } from '../constants';
-import { PriceAlert, TransactionHistory } from '../components';
-import { Header, Notice } from '../components/home';
+import { dummyData } from '../../constants';
+import { PriceAlert, TransactionHistory } from '../../components';
+import { Header, Notice } from '../../components/home';
 
 const Home = ({ navigation }) => {
   const [trending] = useState(dummyData.trendingCurrencies);

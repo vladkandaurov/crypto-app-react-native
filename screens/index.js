@@ -1,5 +1,5 @@
-import Home from './Home';
-import CryptoDetail from './CryptoDetail';
-import Transaction from './Transaction';
+import Home from './home/screen';
+import CryptoDetail from './crypto-detail/screen';
+import Transaction from './transaction/screen';
 
 export { Home, CryptoDetail, Transaction };

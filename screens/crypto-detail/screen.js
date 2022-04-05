@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { StyleSheet, SafeAreaView, ScrollView, View } from 'react-native';
-import { COLORS, SIZES } from '../constants';
-import { HeaderBar, PriceAlert } from '../components';
-import { About, Buy, Chart } from '../components/crypto-detail';
+import { COLORS, SIZES } from '../../constants';
+import { HeaderBar, PriceAlert } from '../../components';
+import { About, Buy, Chart } from '../../components/crypto-detail';
 
 const CryptoDetail = ({ route, navigation }) => {
   const [selectedCurrency, setSelectedCurrency] = useState(null);
