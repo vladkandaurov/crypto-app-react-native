@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { COLORS, SIZES, FONTS, icons } from '../constants';
 
@@ -11,30 +11,26 @@ const HeaderBar = ({ right }: Props) => {
   const navigation = useNavigation();
 
   return (
-    <View
-      style={{
-        paddingHorizontal: SIZES.padding,
-        flexDirection: 'row',
-      }}>
-      <View style={{ flex: 1, alignItems: 'flex-start' }}>
+    <View style={styles.container}>
+      <View style={styles.containerItem}>
         <TouchableOpacity
-          style={{ flexDirection: 'row', alignItems: 'center' }}
+          style={styles.item}
           onPress={() => navigation.goBack()}>
           <Image
             source={icons.back_arrow}
             resizeMode="contain"
-            style={{ width: 25, height: 25, tintColor: COLORS.gray }}
+            style={styles.image}
           />
-          <Text style={{ marginLeft: SIZES.base, ...FONTS.h2 }}>Back</Text>
+          <Text style={styles.backText}>Back</Text>
         </TouchableOpacity>
       </View>
       {right && (
-        <View style={{ flex: 1, alignItems: 'flex-end' }}>
+        <View style={styles.containerRight}>
           <TouchableOpacity>
             <Image
               source={icons.star}
               resizeMode="contain"
-              style={{ width: 30, height: 30 }}
+              style={styles.imageRight}
             />
           </TouchableOpacity>
         </View>
@@ -44,3 +40,16 @@ const HeaderBar = ({ right }: Props) => {
 };
 
 export default HeaderBar;
+
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: SIZES.padding,
+    flexDirection: 'row',
+  },
+  image: { width: 25, height: 25, tintColor: COLORS.gray },
+  containerItem: { flex: 1, alignItems: 'flex-start' },
+  item: { flexDirection: 'row', alignItems: 'center' },
+  backText: { marginLeft: SIZES.base, ...FONTS.h2 },
+  containerRight: { flex: 1, alignItems: 'flex-end' },
+  imageRight: { width: 30, height: 30 },
+});

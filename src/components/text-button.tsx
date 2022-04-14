@@ -1,5 +1,11 @@
 import React from 'react';
-import { Text, TouchableOpacity, ViewStyle, TextStyle } from 'react-native';
+import {
+  Text,
+  TouchableOpacity,
+  ViewStyle,
+  TextStyle,
+  StyleSheet,
+} from 'react-native';
 
 import { COLORS, SIZES, FONTS } from '../constants';
 
@@ -18,20 +24,22 @@ const TextButton = ({
 }: Props) => {
   return (
     <TouchableOpacity
-      style={{
-        height: 45,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: SIZES.radius,
-        backgroundColor: COLORS.green,
-        ...customContainerStyle,
-      }}
+      style={[styles.container, customContainerStyle]}
       onPress={onPress}>
-      <Text style={{ color: COLORS.white, ...FONTS.h3, ...customLabelStyle }}>
-        {label}
-      </Text>
+      <Text style={[styles.text, customLabelStyle]}>{label}</Text>
     </TouchableOpacity>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    height: 45,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: SIZES.radius,
+    backgroundColor: COLORS.green,
+  },
+  text: { color: COLORS.white, ...FONTS.h3 },
+});
 
 export default TextButton;

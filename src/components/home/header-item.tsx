@@ -31,7 +31,7 @@ export const RenderItem = ({ item, index, onPress }: Props) => {
         <Text style={styles.h2}>${item.amount}</Text>
         <Text
           style={{
-            color: item.type == 'I' ? COLORS.green : COLORS.red,
+            color: item.type === 'I' ? COLORS.green : COLORS.red,
             ...FONTS.h3,
           }}>
           {item.changes}

@@ -15,40 +15,30 @@ interface Props {
 
 const PriceAlert = ({ customContainerStyle }: Props) => {
   return (
-    <TouchableOpacity
-      style={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginTop: SIZES.padding * 4.5,
-        marginHorizontal: SIZES.padding,
-        paddingVertical: SIZES.padding,
-        paddingHorizontal: SIZES.radius,
-        backgroundColor: COLORS.white,
-        borderRadius: SIZES.radius,
-        ...customContainerStyle,
-        ...styles.shadow,
-      }}>
-      <Image
-        source={icons.notification_color}
-        style={{ width: 30, height: 30 }}
-      />
-      <View style={{ flex: 1, marginLeft: SIZES.radius }}>
-        <Text style={{ ...FONTS.h3 }}>Set Price Alert</Text>
-        <Text style={{ ...FONTS.body4 }}>
+    <TouchableOpacity style={[styles.container, customContainerStyle]}>
+      <Image source={icons.notification_color} style={styles.image} />
+      <View style={styles.containerText}>
+        <Text style={styles.h3}>Set Price Alert</Text>
+        <Text style={styles.body4}>
           {' '}
           Get notified when your coins are moving
         </Text>
       </View>
-      <Image
-        source={icons.right_arrow}
-        style={{ width: 25, height: 25, tintColor: COLORS.gray }}
-      />
+      <Image source={icons.right_arrow} style={styles.rightIcon} />
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  shadow: {
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: SIZES.padding * 4.5,
+    marginHorizontal: SIZES.padding,
+    paddingVertical: SIZES.padding,
+    paddingHorizontal: SIZES.radius,
+    backgroundColor: COLORS.white,
+    borderRadius: SIZES.radius,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -58,6 +48,11 @@ const styles = StyleSheet.create({
     shadowRadius: 4.65,
     elevation: 8,
   },
+  image: { width: 30, height: 30 },
+  containerText: { flex: 1, marginLeft: SIZES.radius },
+  h3: { ...FONTS.h3 },
+  body4: { ...FONTS.body4 },
+  rightIcon: { width: 25, height: 25, tintColor: COLORS.gray },
 });
 
 export default PriceAlert;
