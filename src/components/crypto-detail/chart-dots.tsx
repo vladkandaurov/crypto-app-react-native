@@ -2,7 +2,12 @@ import React from 'react';
 import { Animated, View, StyleSheet } from 'react-native';
 import { COLORS, SIZES } from '../../constants';
 
-export const Dots = ({ numberOfCharts, scrollX }) => {
+interface Props {
+  numberOfCharts: number[];
+  scrollX: Animated.Value;
+}
+
+export const Dots = ({ numberOfCharts, scrollX }: Props) => {
   const dotPosition = Animated.divide(scrollX, SIZES.width);
 
   return (
@@ -27,6 +32,7 @@ export const Dots = ({ numberOfCharts, scrollX }) => {
           return (
             <Animated.View
               key={`dot-${index}`}
+              //@ts-ignore
               opacity={opacity}
               style={{
                 borderRadius: SIZES.radius,

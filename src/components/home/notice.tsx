@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   textBody: {
     marginTop: SIZES.base,
     color: COLORS.white,
-    lineHeight: 18,
+    // lineHeight: 18,
     ...FONTS.body4,
   },
   link: { marginTop: SIZES.base },

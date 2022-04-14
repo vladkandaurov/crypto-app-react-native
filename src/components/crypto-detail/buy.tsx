@@ -3,8 +3,14 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 
 import { COLORS, FONTS, SIZES, icons } from '../../constants';
 import { CurrencyLabel, TextButton } from '../../components';
+import { TrendingCurrenciesType } from '../../constants/dummy';
 
-export const Buy = ({ selectedItem, onClick }) => {
+interface Props {
+  onPress: () => void;
+  selectedItem: TrendingCurrenciesType;
+}
+
+export const Buy = ({ selectedItem, onPress }: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.labelView}>
@@ -29,7 +35,7 @@ export const Buy = ({ selectedItem, onClick }) => {
           />
         </View>
       </View>
-      <TextButton label="Buy" onPress={onClick} />
+      <TextButton label="Buy" onPress={onPress} />
     </View>
   );
 };

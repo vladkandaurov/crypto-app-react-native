@@ -9,9 +9,16 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { COLORS, SIZES, FONTS, icons, images } from '../../constants';
+import { DummyDataType, TrendingCurrenciesType } from '../../constants/dummy';
 import { RenderItem } from './header-item';
 
-export const Header = ({ trending, data, onPress }) => {
+interface Props {
+  trending: TrendingCurrenciesType[];
+  data: DummyDataType;
+  onPress: (item: TrendingCurrenciesType) => void;
+}
+
+export const Header = ({ trending, data, onPress }: Props) => {
   return (
     <View style={styles.container}>
       <ImageBackground

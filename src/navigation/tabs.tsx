@@ -3,6 +3,7 @@ import { View, Image, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import {
   createBottomTabNavigator,
   BottomTabBar,
+  BottomTabBarButtonProps,
 } from '@react-navigation/bottom-tabs';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -11,7 +12,7 @@ import { COLORS, FONTS, icons } from '../constants';
 
 const Tab = createBottomTabNavigator();
 
-const TabBarCustomButton = ({ children, onPress }) => {
+const TabBarCustomButton = ({ children, onPress }: BottomTabBarButtonProps) => {
   return (
     <TouchableOpacity
       style={{

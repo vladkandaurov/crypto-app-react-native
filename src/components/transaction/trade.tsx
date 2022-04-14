@@ -3,8 +3,13 @@ import { StyleSheet, View, Text } from 'react-native';
 
 import { CurrencyLabel, TextButton } from '../../components';
 import { FONTS, SIZES, COLORS } from '../../constants';
+import { TrendingCurrenciesType } from '../../constants/dummy';
 
-export const Trade = ({ selectedCurrency }) => {
+interface Props {
+  selectedCurrency: TrendingCurrenciesType;
+}
+
+export const Trade = ({ selectedCurrency }: Props) => {
   return (
     <View style={styles.container}>
       <CurrencyLabel

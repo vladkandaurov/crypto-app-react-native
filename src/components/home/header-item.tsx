@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { COLORS, SIZES, FONTS } from '../../constants';
+import { TrendingCurrenciesType } from '../../constants/dummy';
 
-export const RenderItem = ({ item, index, onPress }) => {
-  console.log(index);
+interface Props {
+  item: TrendingCurrenciesType;
+  index: number;
+  onPress: (item: TrendingCurrenciesType) => void;
+}
+
+export const RenderItem = ({ item, index, onPress }: Props) => {
   return (
     <TouchableOpacity
-      style={[{ marginLeft: index == 0 ? SIZES.padding : 0 }, styles.container]}
+      style={[
+        { marginLeft: index === 0 ? SIZES.padding : 0 },
+        styles.container,
+      ]}
       onPress={() => onPress(item)}>
       <View style={styles.direction}>
         <View>

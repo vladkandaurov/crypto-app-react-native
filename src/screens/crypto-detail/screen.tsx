@@ -3,11 +3,13 @@ import { StyleSheet, SafeAreaView, ScrollView, View } from 'react-native';
 import { COLORS, SIZES } from '../../constants';
 import { HeaderBar, PriceAlert } from '../../components';
 import { About, Buy, Chart } from '../../components/crypto-detail';
+import { TrendingCurrenciesType } from '../../constants/dummy';
 
 const CryptoDetail = ({ route, navigation }) => {
-  const [selectedCurrency, setSelectedCurrency] = useState(null);
+  const [selectedCurrency, setSelectedCurrency] =
+    useState<TrendingCurrenciesType>();
 
-  const onClickBuy = useCallback(() => {
+  const onPressBuy = useCallback(() => {
     navigation.navigate('Transaction', { currency: selectedCurrency });
   }, [selectedCurrency]);
 
@@ -20,15 +22,17 @@ const CryptoDetail = ({ route, navigation }) => {
     <SafeAreaView style={styles.container}>
       <HeaderBar right={true} />
       <ScrollView>
-        <View style={styles.items}>
-          <Chart selectedItem={selectedCurrency} />
-          <Buy selectedItem={selectedCurrency} onClick={onClickBuy} />
-          <About
-            description={selectedCurrency?.description}
-            currency={selectedCurrency?.currency}
-          />
-          <PriceAlert customContainerStyle={styles.price} />
-        </View>
+        {selectedCurrency && (
+          <View style={styles.items}>
+            <Chart selectedItem={selectedCurrency} />
+            <Buy selectedItem={selectedCurrency} onPress={onPressBuy} />
+            <About
+              description={selectedCurrency?.description}
+              currency={selectedCurrency?.currency}
+            />
+            <PriceAlert customContainerStyle={styles.price} />
+          </View>
+        )}
       </ScrollView>
     </SafeAreaView>
   );

@@ -2,7 +2,12 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { COLORS, FONTS, SIZES } from '../../constants';
 
-export const About = ({ currency, description }) => {
+interface Props {
+  currency: string;
+  description: string;
+}
+
+export const About = ({ currency, description }: Props) => {
   return (
     <View style={styles.container}>
       <Text style={styles.textAbout}>About {currency}</Text>

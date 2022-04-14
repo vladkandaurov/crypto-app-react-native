@@ -4,9 +4,11 @@ import { StyleSheet, SafeAreaView, ScrollView, View, Text } from 'react-native';
 import { HeaderBar, TransactionHistory } from '../../components';
 import { Trade } from '../../components/transaction';
 import { SIZES } from '../../constants';
+import { TrendingCurrenciesType } from '../../constants/dummy';
 
 const Transaction = ({ route }) => {
-  const [selectedCurrency, setSelectedCurrency] = useState(null);
+  const [selectedCurrency, setSelectedCurrency] =
+    useState<TrendingCurrenciesType>();
 
   useEffect(() => {
     const { currency } = route.params;
@@ -18,11 +20,15 @@ const Transaction = ({ route }) => {
       <HeaderBar right={false} />
       <ScrollView>
         <View style={styles.innerContainer}>
-          <Trade selectedCurrency={selectedCurrency} />
-          <TransactionHistory
-            customContainerStyle={styles.shadow}
-            history={selectedCurrency?.transactionHistory}
-          />
+          {selectedCurrency && (
+            <>
+              <Trade selectedCurrency={selectedCurrency} />
+              <TransactionHistory
+                customContainerStyle={styles.shadow}
+                history={selectedCurrency.transactionHistory}
+              />
+            </>
+          )}
         </View>
       </ScrollView>
     </SafeAreaView>

@@ -11,8 +11,13 @@ import { VictoryCustomTheme } from '../../styles';
 import { COLORS, FONTS, SIZES, dummyData } from '../../constants';
 import { CurrencyLabel, TextButton } from '../../components';
 import { Dots } from './chart-dots';
+import { TrendingCurrenciesType } from '../../constants/dummy';
 
-export const Chart = ({ selectedItem }) => {
+interface Props {
+  selectedItem: TrendingCurrenciesType;
+}
+
+export const Chart = ({ selectedItem }: Props) => {
   const scrollX = new Animated.Value(0);
   const numberOfCharts = [1, 2, 3];
 
